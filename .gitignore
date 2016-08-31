@@ -1,0 +1,5 @@
+android-app-template/bin/*
+android-app-template/obj/*
+android-app-template/AndroidTest.keystore
+android-app-template/src/com/example/testapp/R.java
+
