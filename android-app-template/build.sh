@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#set path to SDK
 echo "set environment variables"
 JAVA_HOME="/n23/JavaSDK8/jdk1.8.0_92"
 ANDROID_HOME="/n23/AndroidSDK"
