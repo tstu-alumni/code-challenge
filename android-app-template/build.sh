@@ -17,9 +17,12 @@ MAIN_CLASS="MainActivity"
 
 echo "clean"
 rm $DEV_HOME/AndroidTest.keystore
-rm $DEV_HOME/bin/*
-rm -r $DEV_HOME/obj/*
+rm -r $DEV_HOME/bin
+rm -r $DEV_HOME/obj
 rm $DEV_HOME/src/com/example/testapp/R.java
+
+mkdir $DEV_HOME/bin
+mkdir $DEV_HOME/obj
 
 echo "generate R.java"
 $AAPT_PATH package -f -m -S $DEV_HOME/res -J $DEV_HOME/src -M $DEV_HOME/AndroidManifest.xml -I $ANDROID_JAR
