@@ -15,22 +15,18 @@
 /*
  * TestPractice: Main testing class running custom tests defined as extensions of XTest interface
  * Methods:
- *  TestPractice(XTest*): initializes TestPractice class by an object of a class which extends XTest basic interface
- *  void runTest(): runs a test case by setting up inputs and making a corresponding assertion. Particular implementation
- *                  of setInput and makeAssertion methods depends on the particular test-case class.
- *  ~TestPractice(): destroys test case object.
+ *  void runTest(XTest*): runs a test case by setting up inputs and making a corresponding assertion. Particular
+ *                  implementation of setInput and makeAssertion methods depends on the particular test-case class.
+ *                  Destroys the test-case class after running the test.
+ *  int getTestCaseNumber(): a static method returning the number of the current test case.
  * ToDo:
  *  Extend the class to provide overwhelming testing capabilities.
  */
 class TestPractice: public TestDaemon{
 public:
-    TestPractice(XTest*);
-    void runTest();
-    ~TestPractice();
+    void runTest(XTest*);
     static int getTestCaseNumber();
-    static void setTestCaseNumber(unsigned int);
 private:
-    XTest *testObject;
     static unsigned int testCaseNumber;
 };
 

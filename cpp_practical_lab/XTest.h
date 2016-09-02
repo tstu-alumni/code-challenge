@@ -18,6 +18,6 @@ public:
 
 class TestDaemon {
 public:
-    virtual void runTest() = 0;
+    virtual void runTest(XTest*) = 0;
 };
 #endif //PRACTICE_XTEST_H

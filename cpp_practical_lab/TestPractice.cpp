@@ -6,27 +6,18 @@
 
 unsigned int TestPractice::testCaseNumber = 1;
 
-TestPractice::TestPractice(XTest *_testObject) {
-    testObject = _testObject;
-}
-
-void TestPractice::runTest() {
-    testCaseNumber++;
-    testObject->setInput();
-    testObject->makeAssertion();
-}
-
-TestPractice::~TestPractice() {
-    if (testObject!=NULL) delete(testObject);
-    testObject = NULL;
+void TestPractice::runTest(XTest* _testObject) {
+    if (_testObject!= nullptr){
+        testCaseNumber++;
+        _testObject->setInput();
+        _testObject->makeAssertion();
+        delete(_testObject);
+    }
+    return;
 }
 
 int TestPractice::getTestCaseNumber() {
     return testCaseNumber;
-}
-
-void TestPractice::setTestCaseNumber(unsigned int _testCaseNumber) {
-    testCaseNumber = _testCaseNumber;
 }
 
 void TestCustomStruct_IDEQ1::setInput() {
