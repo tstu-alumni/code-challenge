@@ -19,14 +19,19 @@
  *  void runTest(): runs a test case by setting up inputs and making a corresponding assertion. Particular implementation
  *                  of setInput and makeAssertion methods depends on the particular test-case class.
  *  ~TestPractice(): destroys test case object.
+ * ToDo:
+ *  Extend the class to provide overwhelming testing capabilities.
  */
-class TestPractice {
+class TestPractice: public TestDaemon{
 public:
     TestPractice(XTest*);
     void runTest();
     ~TestPractice();
+    static int getTestCaseNumber();
+    static void setTestCaseNumber(unsigned int);
 private:
     XTest *testObject;
+    static unsigned int testCaseNumber;
 };
 
 /*

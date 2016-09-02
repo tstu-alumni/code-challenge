@@ -4,11 +4,14 @@
 #include <assert.h>
 #include "TestPractice.h"
 
+unsigned int TestPractice::testCaseNumber = 1;
+
 TestPractice::TestPractice(XTest *_testObject) {
     testObject = _testObject;
 }
 
 void TestPractice::runTest() {
+    testCaseNumber++;
     testObject->setInput();
     testObject->makeAssertion();
 }
@@ -16,6 +19,14 @@ void TestPractice::runTest() {
 TestPractice::~TestPractice() {
     if (testObject!=NULL) delete(testObject);
     testObject = NULL;
+}
+
+int TestPractice::getTestCaseNumber() {
+    return testCaseNumber;
+}
+
+void TestPractice::setTestCaseNumber(unsigned int _testCaseNumber) {
+    testCaseNumber = _testCaseNumber;
 }
 
 void TestCustomStruct_IDEQ1::setInput() {
