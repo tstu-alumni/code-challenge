@@ -7,6 +7,14 @@
 
 unsigned int TestPractice::testCaseNumber = 0;
 
+TestPractice::TestPractice() {
+    testList = new TestList;
+}
+/*
+ * std::cout stream isn't synchronized.
+ * The output order may not be identical from run to run when two std::cout writes go subsequently.
+ * See how to synchronize std::cout stream.
+ */
 void TestPractice::runTest(XTest* testObject) {
     if (testObject!= nullptr){
         TestPractice::testCaseNumber++;
@@ -30,6 +38,24 @@ void TestPractice::finalize() {
 
 TestPractice::~TestPractice() {
     this->finalize();
+    delete(testList);
+}
+
+void TestPractice::runAll() {
+    /*
+     * ToDo: Here goes an implementation of "run all test cases" routine.
+     */
+    for (TestList::iterator it=testList->begin(); it != testList->end(); ++it)
+        this->runTest(*it);
+    return;
+}
+
+void TestPractice::registerTest(XTest *_testCase) {
+    /*
+     * ToDo: Here goes an implementation of "register a test" routine.
+     */
+    this->testList->push_back(_testCase);
+    return;
 }
 
 void TestCustomStruct_IDEQ1::setInput() {
@@ -58,7 +84,7 @@ void TestCustomStruct_IDEQ2::setInput() {
 
 void TestCustomStruct_IDEQ2::makeAssertion() {
     int id = customStruct->getId();
-    assert(id==2);
+    assert(id==1);
     delete(customStruct);
     return;
 }

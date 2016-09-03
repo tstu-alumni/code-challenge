@@ -12,7 +12,7 @@ int main() {
      *  id=1.
      */
     testPractice->runTest(new TestCustomStruct_IDEQ1);
-
+    //testPractice->registerTest(new TestCustomStruct_IDEQ1);
     /*
      * Input:
      *  TotalAmount=0.
@@ -21,7 +21,9 @@ int main() {
      *  id=2.
      */
     testPractice->runTest(new TestCustomStruct_IDEQ2);
+    //testPractice->registerTest(new TestCustomStruct_IDEQ2);
 
+    //testPractice->runAll();
     delete(testPractice);
 
     return 0;

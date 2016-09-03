@@ -11,6 +11,7 @@
 
 #include "XTest.h"
 #include "CustomStruct.h"
+#include <list>
 
 /*
  * TestPractice: Main testing class running custom tests defined as extensions of XTest interface
@@ -20,17 +21,22 @@
  *                  Destroys the test-case class after running the test.
  *  int getTestCaseNumber(): a static method returning the number of the current test case.
  *  void finalize(): Outputs summary information about test run into the standard output flow.
- * ToDo:
- *  Extend the class to provide overwhelming testing capabilities.
+ *  void runAll(): Runs all registered test cases (not implemented).
+ * ToDo: Extend the class to provide overwhelming testing capabilities.
  */
+typedef std::list<XTest*> TestList;
 class TestPractice: public TestDaemon{
 public:
+    TestPractice();
     void runTest(XTest*);
     static int getTestCaseNumber();
     void finalize();
     ~TestPractice();
+    void runAll();
+    void registerTest(XTest*);
 private:
     static unsigned int testCaseNumber;
+    TestList *testList;
 };
 
 /*
