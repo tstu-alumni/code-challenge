@@ -19,6 +19,7 @@
  *                  implementation of setInput and makeAssertion methods depends on the particular test-case class.
  *                  Destroys the test-case class after running the test.
  *  int getTestCaseNumber(): a static method returning the number of the current test case.
+ *  void finalize(): Outputs summary information about test run into the standard output flow.
  * ToDo:
  *  Extend the class to provide overwhelming testing capabilities.
  */
@@ -26,6 +27,8 @@ class TestPractice: public TestDaemon{
 public:
     void runTest(XTest*);
     static int getTestCaseNumber();
+    void finalize();
+    ~TestPractice();
 private:
     static unsigned int testCaseNumber;
 };

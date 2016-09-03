@@ -1,8 +1,4 @@
-#include <iostream>
-
 #include "TestPractice.h"
-
-using namespace std;
 
 int main() {
     TestPractice *testPractice;
@@ -15,9 +11,7 @@ int main() {
      * Expected value:
      *  id=1.
      */
-    cout << "TestCase #" << TestPractice::getTestCaseNumber() << " ";
     testPractice->runTest(new TestCustomStruct_IDEQ1);
-    cout << "Passed." << endl;
 
     /*
      * Input:
@@ -26,11 +20,7 @@ int main() {
      * Expected value:
      *  id=2.
      */
-    cout << "TestCase #" << TestPractice::getTestCaseNumber() << " ";
     testPractice->runTest(new TestCustomStruct_IDEQ2);
-    cout << "Passed." << endl;
-
-    cout << "All tests successfully passed." << endl;
 
     delete(testPractice);
 
