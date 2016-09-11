@@ -1,25 +1,24 @@
 #!/bin/bash
-#set path to SDK
-echo "set environment variables"
-JAVA_HOME="/n23/JavaSDK8/jdk1.8.0_92"
-ANDROID_HOME="/n23/AndroidSDK"
-DEV_HOME="."
-ANDROID_TOOLS_VER="24.0.2"
-AAPT_PATH="$ANDROID_HOME/build-tools/$ANDROID_TOOLS_VER/aapt"
-DX_PATH="$ANDROID_HOME/build-tools/$ANDROID_TOOLS_VER/dx"
-ANDROID_JAR="$ANDROID_HOME/platforms/android-24/android.jar"
-ADB="$ANDROID_HOME/platform-tools/adb"
+
+if [[ -f setenv.sh ]] 
+then
+ source setenv.sh
+else
+ echo "Error: setenv.sh not found! Please copy setenv.sh.sample to setenv.sh, and set path to toolchain;"
+fi
 
 #project
+DEV_HOME="."
 PACKAGE_PATH="com/example/testapp"
 PACKAGE="com.example.testapp"
 MAIN_CLASS="MainActivity"
 
-echo "clean"
-rm $DEV_HOME/AndroidTest.keystore
-rm -r $DEV_HOME/bin
-rm -r $DEV_HOME/obj
-rm $DEV_HOME/src/com/example/testapp/R.java
+if [[ -f clean.sh ]]
+then
+ source clean.sh
+else
+ echo "clean.sh not found!"
+fi
 
 mkdir $DEV_HOME/bin
 mkdir $DEV_HOME/obj
@@ -36,8 +35,15 @@ $DX_PATH --dex --output=$DEV_HOME/bin/classes.dex $DEV_HOME/obj
 echo "generate unsigned apk"
 $AAPT_PATH package -f -M $DEV_HOME/AndroidManifest.xml -S $DEV_HOME/res -I $ANDROID_JAR -F $DEV_HOME/bin/AndroidTest.unsigned.apk $DEV_HOME/bin
 
-echo "signing apk"
+if [[ ! -f $DEV_HOME/AndroidTest.keystore ]]
+then
+ echo "create new $DEV_HOME/AndroidTest.keystore"
 $JAVA_HOME/bin/keytool -genkey -validity 10000 -dname "CN=AndroidDebug, O=Android, C=US" -keystore $DEV_HOME/AndroidTest.keystore -storepass android -keypass android -alias androiddebugkey -keyalg RSA -v -keysize 2048
+else
+ echo "use existing $DEV_HOME/AndroidTest.keystore"
+fi
+
+echo "signing apk"
 $JAVA_HOME/bin/jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore $DEV_HOME/AndroidTest.keystore -storepass android -keypass android -signedjar $DEV_HOME/bin/AndroidTest.signed.apk $DEV_HOME/bin/AndroidTest.unsigned.apk androiddebugkey
 
 echo "done"
