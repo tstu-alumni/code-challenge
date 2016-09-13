@@ -1,3 +1,5 @@
+# cpp-practical-lab
+
 This project is dedicated to collecting C++ usage examples.
 
 In order to facilitate C++ practices a custom testing framework is being developed as part of the project. Contributors are also welcome to use any other 3rd party testing framework such as boost or google-test to test their modules.
