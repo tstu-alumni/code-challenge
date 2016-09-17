@@ -9,3 +9,9 @@ DX_PATH="$ANDROID_HOME/build-tools/$ANDROID_TOOLS_VER/dx"
 ANDROID_JAR="$ANDROID_HOME/platforms/android-24/android.jar"
 ADB="$ANDROID_HOME/platform-tools/adb"
 ANT="/n23/apache-ant-1.9.7/bin/ant"
+
+#project
+DEV_HOME="."
+APK_NAME="AndroidAppAnt"
+PACKAGE_NAME="com.example.testapp"
+

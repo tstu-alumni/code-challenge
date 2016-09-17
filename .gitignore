@@ -1,6 +1,11 @@
 android-app-template/bin/*
 android-app-template/obj/*
-android-app-template/AndroidTest.keystore
+android-app-template/*.keystore
 android-app-template/src/com/example/testapp/R.java
 android-app-template/setenv.sh
+
+android-app-ant/bin/*
+android-app-ant/gen/*
+android-app-ant/*.keystore
+android-app-ant/setenv.sh
 **/.idea
