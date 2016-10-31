@@ -1,9 +1,31 @@
+//
+// Created by Alexander Novinskiy on 31/10/2016.
+//
+
 class ChProcess{
 public:
-    virtual void run(void)=0;
+    static float dropSize;
+    virtual float getTotalAmount(int)=0;
 };
 
-class ChProcessInc : public ChProcess{
+class ChProcessAcc : public ChProcess{
 public:
-    void run(void);
+    ChProcessAcc();
+    ChProcessAcc(float);
+    float getTotalAmount(int);
+
+private:
+    float totalAmount;
+    float computeTotalAmount(int);
+};
+
+class ChProcessMult : public ChProcess{
+public:
+    ChProcessMult();
+    ChProcessMult(float);
+    float getTotalAmount(int);
+
+private:
+    float totalAmount;
+    float computeTotalAmount(int);
 };

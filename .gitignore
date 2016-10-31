@@ -8,7 +8,8 @@ android-app-ant/bin/*
 android-app-ant/gen/*
 android-app-ant/*.keystore
 android-app-ant/setenv.sh
+
 **/.idea
-!domain_specific_languages/*
+**/out/**
+
 code-challenge.wiki
-!java_practical_lab/*
