@@ -49,3 +49,5 @@ float ChProcessMult::computeTotalAmount(int _numberOfIterations){
 float ChProcessMult::getTotalAmount(int _numberOfIterations){
     return computeTotalAmount(_numberOfIterations);
 }
+
+

@@ -3,5 +3,5 @@ project(ChemProcess)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp ChProcess.cpp)
+set(SOURCE_FILES main.cpp ChProcess.cpp ProcessFacade.cpp ProcessFacade.h)
 add_executable(ChemProcess ${SOURCE_FILES})
