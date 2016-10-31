@@ -4,3 +4,6 @@ android-app-template/AndroidTest.keystore
 android-app-template/src/com/example/testapp/R.java
 android-app-template/setenv.sh
 **/.idea
+!domain_specific_languages/*
+code-challenge.wiki
+!java_practical_lab/*

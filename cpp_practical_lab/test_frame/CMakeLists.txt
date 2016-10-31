@@ -1,3 +1,3 @@
 cmake_minimum_required(VERSION 3.5)
-project(cpp_practical_lab)
+project(test_frame)
 add_subdirectory(src)
