@@ -1,13 +1,13 @@
-android-app-template/bin/*
-android-app-template/obj/*
-android-app-template/*.keystore
-android-app-template/src/com/example/testapp/R.java
-android-app-template/setenv.sh
+android/android-app-template/bin/*
+android/android-app-template/obj/*
+android/android-app-template/*.keystore
+android/android-app-template/src/com/example/testapp/R.java
+android/android-app-template/setenv.sh
 
-android-app-ant/bin/*
-android-app-ant/gen/*
-android-app-ant/*.keystore
-android-app-ant/setenv.sh
+android/android-app-ant/bin/*
+android/android-app-ant/gen/*
+android/android-app-ant/*.keystore
+android/android-app-ant/setenv.sh
 
 **/.idea
 **/out/**
