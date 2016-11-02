@@ -18,10 +18,6 @@ ChProcess* ProcessFacade::getChProcess(void){
     return chProcess;
 }
 
-void ProcessFacade::releaseChProcess(){
-    delete(chProcess);
-}
-
 /*
  * ProcessFacadeDefault implementation
  */

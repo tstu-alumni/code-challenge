@@ -15,14 +15,15 @@ int main() {
     std::cin >> dropsNumber;
 
     ProcessFacade *processFacade = new ProcessFacadeDefault(dropsNumber);
+    ChProcess *chProcess;
 
-    processFacade->setChProcess(new ChProcessAcc);
+    processFacade->setChProcess(chProcess = new ChProcessAcc);
     processFacade->runProcess();
-    processFacade->releaseChProcess();
+    delete(chProcess);
 
-    processFacade->setChProcess(new ChProcessMult);
+    processFacade->setChProcess(chProcess = new ChProcessMult);
     processFacade->runProcess();
-    processFacade->releaseChProcess();
+    delete(chProcess);
 
     delete(processFacade);
 

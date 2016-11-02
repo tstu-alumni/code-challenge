@@ -13,7 +13,6 @@ private:
 public:
     void setChProcess(ChProcess*);
     ChProcess* getChProcess(void);
-    void releaseChProcess();
     virtual void runProcess()=0;
 };
 
